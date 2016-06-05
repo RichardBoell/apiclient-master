@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -33,36 +34,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kla-ig-4cB">
-                                <rect key="frame" x="185" y="91" width="231" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gjr-I1-Gve">
-                                <rect key="frame" x="433" y="91" width="47" height="30"/>
-                                <state key="normal" title="search"/>
-                                <connections>
-                                    <action selector="startSearch:" destination="rPr-Fp-ALE" eventType="touchUpInside" id="MRu-kM-rHE"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="information about person" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZK-5a-m2f">
-                                <rect key="frame" x="185" y="152" width="231" height="327"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ep-D4-gKA">
+                                <rect key="frame" x="20" y="118" width="560" height="462"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.28508073090000002" green="0.28508821130000001" blue="0.28508418800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="NZK-5a-m2f" firstAttribute="centerX" secondItem="rEB-Za-Zhx" secondAttribute="centerX" id="BWt-jv-PUE"/>
-                            <constraint firstItem="Kla-ig-4cB" firstAttribute="centerX" secondItem="rEB-Za-Zhx" secondAttribute="centerX" id="dfl-Hu-c1U"/>
-                            <constraint firstItem="gjr-I1-Gve" firstAttribute="leading" secondItem="Kla-ig-4cB" secondAttribute="trailing" constant="15" id="nYk-mU-vTP"/>
+                            <constraint firstItem="6Ep-D4-gKA" firstAttribute="trailing" secondItem="rEB-Za-Zhx" secondAttribute="trailingMargin" id="1eE-tk-IqS"/>
+                            <constraint firstItem="6Ep-D4-gKA" firstAttribute="leading" secondItem="rEB-Za-Zhx" secondAttribute="leadingMargin" id="TVj-uU-roc"/>
+                            <constraint firstItem="6Ep-D4-gKA" firstAttribute="top" secondItem="pj8-zF-1z6" secondAttribute="bottom" constant="54" id="kkm-dY-ljs"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="CZR-l9-xMg"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="CZR-l9-xMg">
+                        <nil key="title"/>
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search person" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" id="9zX-rD-aKp">
+                            <rect key="frame" x="110.5" y="7" width="379" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                            <connections>
+                                <outlet property="delegate" destination="rPr-Fp-ALE" id="UEe-SB-OGd"/>
+                            </connections>
+                        </textField>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="infoField" destination="NZK-5a-m2f" id="U8h-PD-AWb"/>
-                        <outlet property="searchField" destination="Kla-ig-4cB" id="air-gE-RX9"/>
+                        <outlet property="infoField" destination="6Ep-D4-gKA" id="aOa-SM-7BA"/>
+                        <outlet property="searchField" destination="9zX-rD-aKp" id="O6H-Pf-RP3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OaC-W5-AeM" userLabel="First Responder" sceneMemberID="firstResponder"/>

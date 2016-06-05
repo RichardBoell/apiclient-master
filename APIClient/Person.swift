@@ -13,7 +13,7 @@ import UIKit
 struct Person: JSONDecodable {
     
     // The name of the person
-    let name: String
+    var name: String
     // The year of birth of the person
     let birth_year: String
     // The persons eyecolor
